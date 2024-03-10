@@ -23,8 +23,8 @@ const Auth = ({ isLoggedIn }: AppAuth) => {
     console.log(form);
   };
 
-  if (!isLoggedIn) {
-    navigate("/login");
+  if (isLoggedIn) {
+    navigate("/");
   }
 
   /**
@@ -41,14 +41,16 @@ const Auth = ({ isLoggedIn }: AppAuth) => {
           <input
             type="text"
             id="username"
+            name="username"
             autoComplete="off"
             placeholder="Username"
             onChange={handleInput}
           />
           {/* password */}
           <input
+            type="text"
             id="password"
-            type="password"
+            name="password"
             placeholder="Password"
             onChange={handleInput}
           />
