@@ -1,0 +1,25 @@
+.navbar {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  //   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+  padding: 0rem 2rem;
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      gap: 1rem;
+    }
+  }
+}
