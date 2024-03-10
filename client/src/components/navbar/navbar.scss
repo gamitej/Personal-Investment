@@ -29,6 +29,14 @@
       list-style: none;
       gap: 1rem;
       font-size: 1.2rem;
+      cursor: pointer;
+
+      li {
+        &:hover {
+          color: #5175d9;
+          transition: 0.2s ease-in-out;
+        }
+      }
     }
 
     button {
