@@ -26,7 +26,7 @@ const Performance = () => {
         strokeWidth={2}
         series={series}
         // markersSize={5}
-        chartHeight={400}
+        chartHeight={350}
         yAxisTitle="Rupees"
         title="Performance"
         xAxisData={xAxisData}

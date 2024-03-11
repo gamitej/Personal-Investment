@@ -31,8 +31,8 @@ const Overview = () => {
   return (
     <div className="overview">
       <div className="overview-container">
-        {overviewCardData.map((item) => (
-          <OverviewCard {...item} />
+        {overviewCardData.map((item, idx) => (
+          <OverviewCard key={`overview-card-${idx}`} {...item} />
         ))}
       </div>
     </div>

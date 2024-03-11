@@ -1,9 +1,16 @@
 .overview-card {
   width: 20rem;
-  background-color: #ffffff;
+  cursor: pointer;
   padding: 1.5rem 2rem;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   border-radius: 0.5rem;
+  transform: translateY(1);
+  background-color: #ffffff;
+  transition: all 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+
+  &:hover {
+    transform: translateY(-1rem);
+  }
 
   .container {
     display: flex;
