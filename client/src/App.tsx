@@ -6,7 +6,7 @@ import FullScreenLoader from "@/components/loader/FullScreenLoader/FullScreenLoa
 
 function App() {
   const AppProps = {
-    isLoggedIn: false,
+    isLoggedIn: true,
   };
 
   /**
