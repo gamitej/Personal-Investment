@@ -26,6 +26,7 @@ const Performance = () => {
     <div className="performance">
       <AreaChartCard
         id="perf-chart"
+        yAxisTitle="Rupees"
         title="Performance"
         series={series}
         chartHeight={400}

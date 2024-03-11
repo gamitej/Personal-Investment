@@ -4,9 +4,14 @@ import { AreaChartProps } from "@/types/charts.type";
 
 interface AreaChartCardProps extends AreaChartProps {
   title: string;
+  additionalRightHeadComp?: React.ReactNode;
 }
 
-const AreaChartCard = ({ title, ...rest }: AreaChartCardProps) => {
+const AreaChartCard = ({
+  title,
+  additionalRightHeadComp,
+  ...rest
+}: AreaChartCardProps) => {
   return (
     <div className="area">
       <div className="container">
@@ -15,7 +20,7 @@ const AreaChartCard = ({ title, ...rest }: AreaChartCardProps) => {
           <div className="head-left">
             <p>{title}</p>
           </div>
-          <div className="head-right"></div>
+          <div className="head-right">{additionalRightHeadComp}</div>
         </div>
         {/* chart */}
         <div className="chart">
