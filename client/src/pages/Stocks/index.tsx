@@ -20,8 +20,9 @@ const categories = [
 
 const Stocks = () => {
   return (
-    <div>
+    <div className="stocks">
       <BarChartCard
+        title="Company Stocks"
         id="bar-chart"
         series={series}
         chartHeight={350}
