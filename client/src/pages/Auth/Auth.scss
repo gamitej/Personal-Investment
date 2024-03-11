@@ -37,7 +37,7 @@
         font-size: 1.2rem;
         padding: 0.7rem 1rem;
         border-radius: 0.5rem;
-        border: 2px solid #ffffff;
+        border: 2px solid rgb(245, 239, 239);
         -webkit-transition: 0.5s;
         transition: 0.3s;
         box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
@@ -46,6 +46,12 @@
         &:focus {
           border: 2px solid #5d87ff;
         }
+      }
+
+      span {
+        font-size: 1rem;
+        margin-top: -1rem;
+        color: rgb(192, 39, 39);
       }
 
       button {

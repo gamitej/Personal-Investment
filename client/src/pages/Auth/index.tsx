@@ -1,6 +1,7 @@
 import "./Auth.scss";
-import { ChangeEvent, FormEvent, useState } from "react";
+// libs
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 // icons
 import { FaUserCircle } from "react-icons/fa";
 // types
@@ -8,21 +9,13 @@ import { AppAuth } from "@/types/components.type";
 
 const Auth = ({ isLoggedIn }: AppAuth) => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ username: "", password: "" });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  // =================== EVENT HANDLERS =================
-
-  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = e.target;
-
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(form);
-  };
-
+  const onSubmit = (data: object) => console.log(data);
   if (isLoggedIn) {
     navigate("/");
   }
@@ -36,24 +29,37 @@ const Auth = ({ isLoggedIn }: AppAuth) => {
         <p>
           <FaUserCircle />
         </p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           {/* username */}
           <input
             type="text"
             id="username"
-            name="username"
             autoComplete="off"
             placeholder="Username"
-            onChange={handleInput}
+            {...register("username", { required: true, minLength: 4 })}
           />
+          {errors.username && errors.username.type === "required" && (
+            <span className="errorMsg">Username is required.</span>
+          )}
+          {errors.username && errors.username.type === "minLength" && (
+            <span className="errorMsg">Username is not valid.</span>
+          )}
           {/* password */}
           <input
             type="text"
             id="password"
-            name="password"
             placeholder="Password"
-            onChange={handleInput}
+            {...register("password", {
+              required: true,
+              minLength: 6,
+            })}
           />
+          {errors.password && errors.password.type === "required" && (
+            <span className="errorMsg">Password is required.</span>
+          )}
+          {errors.password && errors.password.type === "minLength" && (
+            <span className="errorMsg">Password is not valid.</span>
+          )}
           {/* submit */}
           <button type="submit">Login</button>
         </form>
