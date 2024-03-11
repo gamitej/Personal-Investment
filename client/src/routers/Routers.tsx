@@ -7,6 +7,9 @@ import ProtectedRoute from "@/components/auth/ProtectedRoutes";
 import { AppAuth } from "@/types/components.type";
 
 const Home = lazy(() => import("@/pages/Home"));
+const Stocks = lazy(() => import("@/pages/Stocks"));
+const Expenses = lazy(() => import("@/pages/Expenses"));
+const Savings = lazy(() => import("@/pages/Savings"));
 
 const Router = (props: AppAuth) => {
   const route = useRoutes([
@@ -17,6 +20,18 @@ const Router = (props: AppAuth) => {
         {
           path: "/",
           element: <Home />,
+        },
+        {
+          path: "/stocks",
+          element: <Stocks />,
+        },
+        {
+          path: "/expenses",
+          element: <Expenses />,
+        },
+        {
+          path: "/savings",
+          element: <Savings />,
         },
       ],
     },

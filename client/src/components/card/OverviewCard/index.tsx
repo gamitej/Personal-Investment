@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./OverviewCard.scss";
 
 interface OverviewCardProps {
@@ -13,11 +14,17 @@ const OverviewCard = ({
   total = "Rs 10500",
   label = "total stocks 5",
 }: OverviewCardProps) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (title: string) => {
+    navigate(title);
+  };
+
   /**
    * TSX
    */
   return (
-    <div className="overview-card">
+    <div className="overview-card" onClick={() => handleNavigate(title)}>
       <div className="container">
         <div className="top">
           <div className="left">{logo}</div>
