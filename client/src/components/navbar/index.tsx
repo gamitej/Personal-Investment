@@ -1,5 +1,5 @@
 import "./navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const navLink = [
   { to: "/", name: "Home" },
@@ -9,6 +9,8 @@ const navLink = [
 ];
 
 const Navbar = () => {
+  const { pathname: activeLink } = useLocation();
+
   /**
    * TSX
    */
@@ -20,7 +22,11 @@ const Navbar = () => {
       <div className="nav-right">
         <ul>
           {navLink.map(({ to, name }, idx) => (
-            <Link className="link" to={to} key={`${name}-${idx}`}>
+            <Link
+              className={`link ${to === activeLink && "active"}`}
+              to={to}
+              key={`${name}-${idx}`}
+            >
               {name}
             </Link>
           ))}

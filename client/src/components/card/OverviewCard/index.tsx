@@ -17,7 +17,7 @@ const OverviewCard = ({
   const navigate = useNavigate();
 
   const handleNavigate = (title: string) => {
-    navigate(title);
+    navigate(title.toLowerCase());
   };
 
   /**
