@@ -1,4 +1,12 @@
 import "./navbar.scss";
+import { Link } from "react-router-dom";
+
+const navLink = [
+  { to: "/", name: "Home" },
+  { to: "/stocks", name: "Stocks" },
+  { to: "/expenses", name: "Expenses" },
+  { to: "/savings", name: "Savings" },
+];
 
 const Navbar = () => {
   /**
@@ -6,12 +14,16 @@ const Navbar = () => {
    */
   return (
     <div className="navbar">
-      <div className="nav-left">Personal</div>
+      <div className="nav-left">
+        <Link to="/">Personal</Link>
+      </div>
       <div className="nav-right">
         <ul>
-          <li>Home</li>
-          <li>Entry</li>
-          <li>Charts</li>
+          {navLink.map(({ to, name }, idx) => (
+            <Link className="link" to={to} key={`${name}-${idx}`}>
+              {name}
+            </Link>
+          ))}
         </ul>
         <button>Login</button>
       </div>
