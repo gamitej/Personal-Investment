@@ -1,41 +1,23 @@
 import AreaChart from "@/components/charts/AreaChart";
+import { AreaChartProps } from "@/types/charts.type";
 
-const series = [
-  {
-    name: "STOCK ABC",
-    data: [31, 40, 28, 51, 42, 109, 100],
-  },
-];
+interface AreaChartCardProps extends AreaChartProps {
+  title: string;
+}
 
-const xAxisData = [
-  "2018-09-19T00:00:00.000Z",
-  "2018-09-19T01:30:00.000Z",
-  "2018-09-19T02:30:00.000Z",
-  "2018-09-19T03:30:00.000Z",
-  "2018-09-19T04:30:00.000Z",
-  "2018-09-19T05:30:00.000Z",
-  "2018-09-19T06:30:00.000Z",
-];
-
-const AreaChartCard = ({ chartHeight }) => {
+const AreaChartCard = ({ title, ...rest }: AreaChartCardProps) => {
   return (
     <div>
-      <div></div>
+      <div>{title}</div>
       <div>
-        <Chart chartHeight={chartHeight} />
+        <Chart {...rest} />
       </div>
     </div>
   );
 };
 
-const Chart = ({ chartHeight }) => {
-  return (
-    <AreaChart
-      series={series}
-      xAxisData={xAxisData}
-      chartHeight={chartHeight}
-    />
-  );
+const Chart = (props: AreaChartProps) => {
+  return <AreaChart {...props} />;
 };
 
 export default AreaChartCard;

@@ -1,12 +1,6 @@
 import { ApexOptions } from "apexcharts";
 import ReactApexChart from "react-apexcharts";
-
-interface AreaChartProps {
-  id: string;
-  series: any[];
-  xAxisData: string[];
-  chartHeight?: number;
-}
+import { AreaChartProps } from "@/types/charts.type";
 
 const AreaChart = ({
   id = "chartId",
