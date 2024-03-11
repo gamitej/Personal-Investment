@@ -1,3 +1,5 @@
+/* =========================== PERFORMANCE =========================== */
+
 .performance {
   width: 95%;
   display: flex;
@@ -38,5 +40,21 @@
       color: #ffffff;
       background-color: #5d87ff;
     }
+  }
+}
+
+/* =========================== OVERVIEW =========================== */
+
+.overview {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  margin: 3rem auto;
+
+  .overview-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
   }
 }
