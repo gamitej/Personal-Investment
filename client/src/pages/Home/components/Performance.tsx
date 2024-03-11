@@ -1,30 +1,20 @@
 import "./components.scss";
 import moment from "moment";
+import { useMemo, useState } from "react";
+// components
 import AreaChartCard from "@/components/card/AreaCard";
-import { useState } from "react";
-
-const series = [
-  {
-    name: "STOCK ABC",
-    data: [31, 40, 28, 51, 42, 109, 100],
-  },
-];
-
-const xAxisData = [
-  "2018-09-19",
-  "2018-09-20",
-  "2018-09-21",
-  "2018-09-22",
-  "2018-09-23",
-  "2018-09-24",
-  "2018-09-25",
-];
+// data
+import { seriesData } from "../data";
 
 type activeBtnType = "stock" | "expenses";
 
 const Performance = () => {
   const [activePerformaceSection, setActivePerformaceSection] =
     useState<activeBtnType>("stock");
+
+  const { series = [], xAxisData = [] } = useMemo(() => {
+    return seriesData[activePerformaceSection];
+  }, [activePerformaceSection]);
 
   /**
    * TSX
@@ -35,6 +25,7 @@ const Performance = () => {
         id="perf-chart"
         strokeWidth={2}
         series={series}
+        // markersSize={5}
         chartHeight={400}
         yAxisTitle="Rupees"
         title="Performance"

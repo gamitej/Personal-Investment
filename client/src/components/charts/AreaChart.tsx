@@ -8,8 +8,10 @@ const AreaChart = ({
   yAxisFormatter,
   series = [],
   xAxisData = [],
+  markersSize = 0,
   strokeWidth = 1,
   chartHeight = 350,
+  enableGrid = false,
   yAxisFontSize = "16px",
   enableDataLabels = false,
   yAxisTitle = "y-axis-title",
@@ -26,6 +28,12 @@ const AreaChart = ({
     },
     dataLabels: {
       enabled: enableDataLabels,
+    },
+    grid: {
+      show: enableGrid,
+    },
+    markers: {
+      size: markersSize,
     },
     stroke: {
       width: strokeWidth,
