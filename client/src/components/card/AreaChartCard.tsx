@@ -2,12 +2,8 @@ import AreaChart from "@/components/charts/AreaChart";
 
 const series = [
   {
-    name: "series1",
+    name: "STOCK ABC",
     data: [31, 40, 28, 51, 42, 109, 100],
-  },
-  {
-    name: "series2",
-    data: [11, 32, 45, 32, 34, 52, 41],
   },
 ];
 
@@ -21,19 +17,25 @@ const xAxisData = [
   "2018-09-19T06:30:00.000Z",
 ];
 
-const AreaChartCard = () => {
+const AreaChartCard = ({ chartHeight }) => {
   return (
     <div>
       <div></div>
       <div>
-        <Chart />
+        <Chart chartHeight={chartHeight} />
       </div>
     </div>
   );
 };
 
-const Chart = () => {
-  return <AreaChart series={series} xAxisData={xAxisData} />;
+const Chart = ({ chartHeight }) => {
+  return (
+    <AreaChart
+      series={series}
+      xAxisData={xAxisData}
+      chartHeight={chartHeight}
+    />
+  );
 };
 
 export default AreaChartCard;

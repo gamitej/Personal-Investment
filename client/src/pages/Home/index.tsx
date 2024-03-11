@@ -1,5 +1,11 @@
+import Performance from "./components/Performance";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Performance />
+    </div>
+  );
 };
 
 export default Home;

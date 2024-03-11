@@ -2,39 +2,40 @@ import { ApexOptions } from "apexcharts";
 import ReactApexChart from "react-apexcharts";
 
 interface AreaChartProps {
+  id: string;
   series: any[];
   xAxisData: string[];
+  chartHeight?: number;
 }
 
-const AreaChart = ({ series = [], xAxisData = [] }: AreaChartProps) => {
+const AreaChart = ({
+  id = "chartId",
+  series = [],
+  xAxisData = [],
+  chartHeight = 350,
+}: AreaChartProps) => {
   const options: ApexOptions = {
     chart: {
-      height: 350,
-      type: "area",
-    },
-    dataLabels: {
-      enabled: false,
-    },
-    stroke: {
-      curve: "smooth",
+      id,
+      toolbar: {
+        show: false,
+      },
+      zoom: {
+        enabled: false,
+      },
     },
     xaxis: {
       type: "datetime",
       categories: xAxisData,
-    },
-    tooltip: {
-      x: {
-        format: "dd/MM/yy HH:mm",
-      },
     },
   };
 
   return (
     <ReactApexChart
       type="area"
-      height={300}
       series={series}
       options={options}
+      height={chartHeight}
     />
   );
 };

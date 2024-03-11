@@ -1,10 +1,12 @@
+import AreaChartCard from "@/components/card/AreaChartCard";
+
 const Performance = () => {
   /**
    * TSX
    */
   return (
     <div>
-      <div>Performance</div>
+      <AreaChartCard chartHeight={400} />
     </div>
   );
 };
