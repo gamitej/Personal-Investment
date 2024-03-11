@@ -26,6 +26,8 @@ const Stocks = () => {
         id="bar-chart"
         series={series}
         chartHeight={350}
+        // enableDataLabels
+        columnWidth="30%"
         yAxisTitle="Rupees"
         xAxisData={categories}
       />

@@ -19,9 +19,14 @@ export interface BarChartProps {
   yAxisTitle: string;
   xAxisData: string[];
   chartHeight?: number;
+  columnWidth?: string;
   xAxisFontSize?: string;
   yAxisFontSize?: string;
   enableDataLabels?: boolean;
   xAxisFormatter?: (value: string) => string;
   yAxisFormatter?: (value: string | number) => string;
+  dataLabelFormatter?: (
+    value: string | number | number[],
+    opts?: any
+  ) => string | number;
 }

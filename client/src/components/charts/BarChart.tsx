@@ -9,6 +9,8 @@ const BarChart = ({
   series = [],
   xAxisData = [],
   chartHeight = 350,
+  dataLabelFormatter,
+  columnWidth = "45%",
   yAxisFontSize = "16px",
   xAxisFontSize = "16px",
   enableDataLabels = false,
@@ -21,12 +23,18 @@ const BarChart = ({
     // colors: colors,
     plotOptions: {
       bar: {
-        columnWidth: "45%",
         distributed: true,
+        columnWidth: columnWidth,
       },
     },
     dataLabels: {
       enabled: enableDataLabels,
+      formatter: (val, opts) =>
+        dataLabelFormatter
+          ? dataLabelFormatter(val, opts)
+          : val instanceof Array
+          ? ""
+          : val,
     },
     legend: {
       show: false,
