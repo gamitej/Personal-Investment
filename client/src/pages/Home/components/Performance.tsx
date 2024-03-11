@@ -1,4 +1,5 @@
-import AreaChartCard from "@/components/card/AreaChartCard";
+import "./components.scss";
+import AreaChartCard from "@/components/card/AreaCard";
 
 const series = [
   {
@@ -22,10 +23,10 @@ const Performance = () => {
    * TSX
    */
   return (
-    <div>
+    <div className="performance">
       <AreaChartCard
+        id="perf-chart"
         title="Performance"
-        id="performance-chart"
         series={series}
         chartHeight={400}
         xAxisData={xAxisData}

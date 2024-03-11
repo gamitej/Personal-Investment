@@ -1,3 +1,4 @@
+import "./AreaChartCard.scss";
 import AreaChart from "@/components/charts/AreaChart";
 import { AreaChartProps } from "@/types/charts.type";
 
@@ -7,10 +8,19 @@ interface AreaChartCardProps extends AreaChartProps {
 
 const AreaChartCard = ({ title, ...rest }: AreaChartCardProps) => {
   return (
-    <div>
-      <div>{title}</div>
-      <div>
-        <Chart {...rest} />
+    <div className="area">
+      <div className="container">
+        {/* head */}
+        <div className="head">
+          <div className="head-left">
+            <p>{title}</p>
+          </div>
+          <div className="head-right"></div>
+        </div>
+        {/* chart */}
+        <div className="chart">
+          <Chart {...rest} />
+        </div>
       </div>
     </div>
   );
