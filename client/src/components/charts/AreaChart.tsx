@@ -8,6 +8,7 @@ const AreaChart = ({
   yAxisFormatter,
   series = [],
   xAxisData = [],
+  strokeWidth = 1,
   chartHeight = 350,
   yAxisFontSize = "16px",
   enableDataLabels = false,
@@ -25,6 +26,9 @@ const AreaChart = ({
     },
     dataLabels: {
       enabled: enableDataLabels,
+    },
+    stroke: {
+      width: strokeWidth,
     },
     xaxis: {
       type: "datetime",

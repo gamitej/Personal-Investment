@@ -1,5 +1,7 @@
 import "./components.scss";
+import moment from "moment";
 import AreaChartCard from "@/components/card/AreaCard";
+import { useState } from "react";
 
 const series = [
   {
@@ -9,16 +11,21 @@ const series = [
 ];
 
 const xAxisData = [
-  "2018-09-19T00:00:00.000Z",
-  "2018-09-19T01:30:00.000Z",
-  "2018-09-19T02:30:00.000Z",
-  "2018-09-19T03:30:00.000Z",
-  "2018-09-19T04:30:00.000Z",
-  "2018-09-19T05:30:00.000Z",
-  "2018-09-19T06:30:00.000Z",
+  "2018-09-19",
+  "2018-09-20",
+  "2018-09-21",
+  "2018-09-22",
+  "2018-09-23",
+  "2018-09-24",
+  "2018-09-25",
 ];
 
+type activeBtnType = "stock" | "expenses";
+
 const Performance = () => {
+  const [activePerformaceSection, setActivePerformaceSection] =
+    useState<activeBtnType>("stock");
+
   /**
    * TSX
    */
@@ -26,14 +33,46 @@ const Performance = () => {
     <div className="performance">
       <AreaChartCard
         id="perf-chart"
-        yAxisTitle="Rupees"
-        title="Performance"
+        strokeWidth={2}
         series={series}
         chartHeight={400}
+        yAxisTitle="Rupees"
+        title="Performance"
         xAxisData={xAxisData}
+        additionalRightHeadComp={
+          <HeadSection
+            activeBtn={activePerformaceSection}
+            setActiveBtn={setActivePerformaceSection}
+          />
+        }
+        xAxisFormatter={(value) => moment(value).format("DD MMM YY")}
       />
     </div>
   );
 };
+
+interface HeadSectionProps {
+  activeBtn: activeBtnType;
+  setActiveBtn: (val: activeBtnType) => void;
+}
+
+function HeadSection({ activeBtn, setActiveBtn }: HeadSectionProps) {
+  return (
+    <div className="head-section">
+      <button
+        onClick={() => setActiveBtn("stock")}
+        className={`left ${activeBtn === "stock" ? "active" : ""}`}
+      >
+        Stock
+      </button>
+      <button
+        onClick={() => setActiveBtn("expenses")}
+        className={`right ${activeBtn === "expenses" ? "active" : ""}`}
+      >
+        Expenses
+      </button>
+    </div>
+  );
+}
 
 export default Performance;

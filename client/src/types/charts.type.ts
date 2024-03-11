@@ -3,6 +3,7 @@ export interface AreaChartProps {
   series: any[];
   yAxisTitle: string;
   xAxisData: string[];
+  strokeWidth?: number;
   chartHeight?: number;
   yAxisFontSize?: string;
   enableDataLabels?: boolean;
