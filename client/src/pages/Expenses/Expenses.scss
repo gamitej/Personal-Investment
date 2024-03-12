@@ -1,0 +1,39 @@
+.expenses {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto;
+
+  .container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    .expense-table {
+      width: 70%;
+      height: calc(100vh - 11rem);
+      background-color: lightcoral;
+    }
+
+    .right {
+      width: 30%;
+      height: calc(100vh - 11rem);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .expense-right-top {
+        height: 60%;
+        background-color: lightgreen;
+      }
+      .expense-right-bottom {
+        height: 40%;
+        background-color: lightsalmon;
+      }
+    }
+  }
+}

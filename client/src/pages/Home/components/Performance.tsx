@@ -32,7 +32,7 @@ const Performance = () => {
         id="perf-chart"
         strokeWidth={2}
         series={series}
-        // markersSize={5}
+        markersSize={5}
         chartHeight={350}
         yAxisTitle="Price"
         title="Performance"
@@ -43,10 +43,6 @@ const Performance = () => {
             selectedValue={activePerformaceSection}
             onChange={setActivePerformaceSection}
           />
-          // <HeadSection
-          //   activeBtn={activePerformaceSection}
-          //   setActiveBtn={setActivePerformaceSection}
-          // />
         }
         xAxisFormatter={(value) => moment(value).format("DD MMM YY")}
       />
