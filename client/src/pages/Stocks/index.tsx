@@ -28,7 +28,7 @@ const Stocks = () => {
         chartHeight={350}
         // enableDataLabels
         columnWidth="30%"
-        yAxisTitle="Rupees"
+        yAxisTitle="Price"
         xAxisData={categories}
       />
     </div>

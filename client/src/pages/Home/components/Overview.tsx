@@ -8,19 +8,19 @@ const overviewCardData = [
     logo: <LuCandlestickChart />,
     title: "Stocks",
     total: "Rs 10500",
-    label: "total 5 stocks purchased",
+    label: "+10.5% Last Month",
   },
   {
     logo: <FaChartPie color="5d87ff" size={42} />,
     title: "Expenses",
     total: "Rs 10500",
-    label: "total expense of march",
+    label: "-8.5% Last Month",
   },
   {
     logo: <FaChartLine color="5d87ff" size={42} />,
     title: "Savings",
     total: "Rs 10500",
-    label: "total savings from Jan-24",
+    label: "+4.32% Last Month",
   },
 ];
 

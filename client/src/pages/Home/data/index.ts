@@ -1,4 +1,4 @@
-export const seriesData = {
+export const seriesData: { [key: string]: any } = {
   stock: {
     series: [
       {

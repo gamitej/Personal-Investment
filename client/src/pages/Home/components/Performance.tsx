@@ -5,15 +5,22 @@ import { useMemo, useState } from "react";
 import AreaChartCard from "@/components/card/AreaCard";
 // data
 import { seriesData } from "../data";
+import Dropdown from "@/components/dropdown/Dropdown";
 
-type activeBtnType = "stock" | "expenses";
+const options = [
+  { label: "Stock", value: "stock" },
+  { label: "Expenses", value: "expenses" },
+];
 
 const Performance = () => {
   const [activePerformaceSection, setActivePerformaceSection] =
-    useState<activeBtnType>("stock");
+    useState<string>("stock");
 
   const { series = [], xAxisData = [] } = useMemo(() => {
-    return seriesData[activePerformaceSection];
+    if (activePerformaceSection in seriesData)
+      return seriesData[activePerformaceSection];
+
+    return { series: [], xAxisData: [] };
   }, [activePerformaceSection]);
 
   /**
@@ -27,43 +34,24 @@ const Performance = () => {
         series={series}
         // markersSize={5}
         chartHeight={350}
-        yAxisTitle="Rupees"
+        yAxisTitle="Price"
         title="Performance"
         xAxisData={xAxisData}
         additionalRightHeadComp={
-          <HeadSection
-            activeBtn={activePerformaceSection}
-            setActiveBtn={setActivePerformaceSection}
+          <Dropdown
+            options={options}
+            selectedValue={activePerformaceSection}
+            onChange={setActivePerformaceSection}
           />
+          // <HeadSection
+          //   activeBtn={activePerformaceSection}
+          //   setActiveBtn={setActivePerformaceSection}
+          // />
         }
         xAxisFormatter={(value) => moment(value).format("DD MMM YY")}
       />
     </div>
   );
 };
-
-interface HeadSectionProps {
-  activeBtn: activeBtnType;
-  setActiveBtn: (val: activeBtnType) => void;
-}
-
-function HeadSection({ activeBtn, setActiveBtn }: HeadSectionProps) {
-  return (
-    <div className="head-section">
-      <button
-        onClick={() => setActiveBtn("stock")}
-        className={`left ${activeBtn === "stock" ? "active" : ""}`}
-      >
-        Stock
-      </button>
-      <button
-        onClick={() => setActiveBtn("expenses")}
-        className={`right ${activeBtn === "expenses" ? "active" : ""}`}
-      >
-        Expenses
-      </button>
-    </div>
-  );
-}
 
 export default Performance;
