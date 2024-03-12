@@ -1,3 +1,4 @@
+import Table from "@/components/table/Table";
 import "./Expenses.scss";
 
 const Expenses = () => {
@@ -5,7 +6,9 @@ const Expenses = () => {
     <div className="expenses">
       <div className="container">
         <div className="expense-table">
-          <div>Expenses table</div>
+          <div>
+            <Table />
+          </div>
         </div>
         <div className="right">
           <div className="expense-right-top">
