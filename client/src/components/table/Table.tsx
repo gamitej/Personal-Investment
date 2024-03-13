@@ -1,44 +1,26 @@
 import "./Table.scss";
 
-const Table = ({ title = "title" }) => {
+const Table = () => {
   return (
     <div className="table">
+      {/* table head */}
       <div className="table-toolbar">
-        <div className="table-toolbar-left">
-          <p>{title}</p>
+        <div className="toolbar">
+          <p>S.no</p>
+          <p>Name</p>
+          <p>Price</p>
+          <p>City</p>
         </div>
-        <div className="table-toolbar-right"></div>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>S.no</th>
-            <th>Name</th>
-            <th>City</th>
-            <th>City</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Amitej</td>
-            <td>Bhopal</td>
-            <td>Bhopal</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Amitej</td>
-            <td>Bhopal</td>
-            <td>Bhopal</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Amitej</td>
-            <td>Bhopal</td>
-            <td>Bhopal</td>
-          </tr>
-        </tbody>
-      </table>
+      {/* table body */}
+      <div className="table-body">
+        <div className="">
+          <p>1</p>
+          <p>Amitej</p>
+          <p>Rs 200</p>
+          <p>Bhopal</p>
+        </div>
+      </div>
     </div>
   );
 };

@@ -2,41 +2,10 @@
   width: 100%;
   overflow: auto;
   border-radius: 0.5rem;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
-  .table-toolbar {
-    padding: 1rem 2rem;
 
-    .table-toolbar-left {
-      font-size: 1.4rem;
-      color: rgb(94, 90, 90);
-      font-weight: 600;
-      text-transform: capitalize;
-    }
-  }
+  
 
-  table {
-    width: 100%;
-    table-layout: fixed;
-    border-radius: 0rem 0rem 0.5rem 0.5rem;
-    border-collapse: collapse;
-
-    thead {
-      background-color: rgb(180, 177, 177);
-    }
-
-    th,
-    td {
-      padding: 10px;
-    }
-
-    tbody td {
-      text-align: center;
-    }
-
-    tbody tr:nth-child(odd) {
-      background-color: rgb(235, 234, 234);
-    }
-  }
 }
