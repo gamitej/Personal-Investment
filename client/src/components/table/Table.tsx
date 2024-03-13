@@ -4,7 +4,7 @@ const Table = () => {
   return (
     <div className="table">
       {/* table head */}
-      <div className="tbl-header">
+      <div className="table-header">
         <table>
           <thead>
             <tr>
@@ -17,7 +17,8 @@ const Table = () => {
           </thead>
         </table>
       </div>
-      <div className="tbl-content">
+      {/* table body */}
+      <div className="table-body">
         <table>
           <tbody>
             <tr>
