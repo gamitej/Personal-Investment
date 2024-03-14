@@ -1,6 +1,31 @@
 import "./Table.scss";
 
-const Table = () => {
+interface TableProps {
+  cols: { label: string; value: string }[];
+}
+
+const Table = ({ cols = [], rows = [] }: TableProps) => {
+  const cols: object[] = [
+    { label: "Code", value: "code" },
+    { label: "Company", value: "company" },
+    { label: "Price", value: "price" },
+    { label: "Change", value: "change" },
+    { label: "Date", value: "date" },
+  ];
+
+  const rows: object[] = [
+    {
+      code: "AAC",
+      company: "Aus",
+      price: "200",
+      change: "+2.01",
+      date: "2 Mar",
+    },
+  ];
+
+  /**
+   * TSX
+   */
   return (
     <div className="table">
       {/* table head */}
@@ -8,11 +33,9 @@ const Table = () => {
         <table>
           <thead>
             <tr>
-              <th>Code</th>
-              <th>Company</th>
-              <th>Price</th>
-              <th>Change</th>
-              <th>Change %</th>
+              {cols.map((item, idx) => (
+                <th key={idx}>{item.label}</th>
+              ))}
             </tr>
           </thead>
         </table>
@@ -21,90 +44,13 @@ const Table = () => {
       <div className="table-body">
         <table>
           <tbody>
-            <tr>
-              <td>AAC</td>
-              <td>AUSTRALIAN COMPANY </td>
-              <td>$1.38</td>
-              <td>+2.01</td>
-              <td>-0.36%</td>
-            </tr>
-            <tr>
-              <td>AAD</td>
-              <td>AUSENCO</td>
-              <td>$2.38</td>
-              <td>-0.01</td>
-              <td>-1.36%</td>
-            </tr>
-            <tr>
-              <td>AAX</td>
-              <td>ADELAIDE</td>
-              <td>$3.22</td>
-              <td>+0.01</td>
-              <td>+1.36%</td>
-            </tr>
-            <tr>
-              <td>XXD</td>
-              <td>ADITYA BIRLA</td>
-              <td>$1.02</td>
-              <td>-1.01</td>
-              <td>+2.36%</td>
-            </tr>
-            <tr>
-              <td>AAC</td>
-              <td>AUSTRALIAN COMPANY </td>
-              <td>$1.38</td>
-              <td>+2.01</td>
-              <td>-0.36%</td>
-            </tr>
-            <tr>
-              <td>AAD</td>
-              <td>AUSENCO</td>
-              <td>$2.38</td>
-              <td>-0.01</td>
-              <td>-1.36%</td>
-            </tr>
-            <tr>
-              <td>AAX</td>
-              <td>ADELAIDE</td>
-              <td>$3.22</td>
-              <td>+0.01</td>
-              <td>+1.36%</td>
-            </tr>
-            <tr>
-              <td>XXD</td>
-              <td>ADITYA BIRLA</td>
-              <td>$1.02</td>
-              <td>-1.01</td>
-              <td>+2.36%</td>
-            </tr>
-            <tr>
-              <td>AAC</td>
-              <td>AUSTRALIAN COMPANY </td>
-              <td>$1.38</td>
-              <td>+2.01</td>
-              <td>-0.36%</td>
-            </tr>
-            <tr>
-              <td>AAD</td>
-              <td>AUSENCO</td>
-              <td>$2.38</td>
-              <td>-0.01</td>
-              <td>-1.36%</td>
-            </tr>
-            <tr>
-              <td>AAD</td>
-              <td>AUSENCO</td>
-              <td>$2.38</td>
-              <td>-0.01</td>
-              <td>-1.36%</td>
-            </tr>
-            <tr>
-              <td>AAX</td>
-              <td>ADELAIDE</td>
-              <td>$3.22</td>
-              <td>+0.01</td>
-              <td>+1.36%</td>
-            </tr>
+            {rows.map((item, idx) => (
+              <tr key={idx}>
+                {cols.map(({ value }, colsIdx) => (
+                  <td key={`cols-${colsIdx}`}>{item[value]}</td>
+                ))}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
