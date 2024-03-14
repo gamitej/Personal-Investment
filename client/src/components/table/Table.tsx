@@ -2,27 +2,10 @@ import "./Table.scss";
 
 interface TableProps {
   cols: { label: string; value: string }[];
+  rows: { [key: string]: string }[];
 }
 
 const Table = ({ cols = [], rows = [] }: TableProps) => {
-  const cols: object[] = [
-    { label: "Code", value: "code" },
-    { label: "Company", value: "company" },
-    { label: "Price", value: "price" },
-    { label: "Change", value: "change" },
-    { label: "Date", value: "date" },
-  ];
-
-  const rows: object[] = [
-    {
-      code: "AAC",
-      company: "Aus",
-      price: "200",
-      change: "+2.01",
-      date: "2 Mar",
-    },
-  ];
-
   /**
    * TSX
    */
