@@ -5,3 +5,6 @@
 3. Scss
 4. Reedux toolkit
 5. framer motion
+
+
+## Backend NodeJs
