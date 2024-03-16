@@ -1,11 +1,12 @@
 import "./Table.scss";
 
 interface TableProps {
-  cols: { label: string; value: string }[];
+  tableHeight?: string;
   rows: { [key: string]: string }[];
+  cols: { label: string; value: string }[];
 }
 
-const Table = ({ cols = [], rows = [] }: TableProps) => {
+const Table = ({ cols = [], rows = [], tableHeight = "300px" }: TableProps) => {
   /**
    * TSX
    */
@@ -24,7 +25,7 @@ const Table = ({ cols = [], rows = [] }: TableProps) => {
         </table>
       </div>
       {/* table body */}
-      <div className="table-body">
+      <div className="table-body" style={{ height: tableHeight }}>
         <table>
           <tbody>
             {rows.map((item, idx) => (

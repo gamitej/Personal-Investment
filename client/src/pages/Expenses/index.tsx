@@ -12,6 +12,13 @@ const cols = [
 const rows = [
   {
     code: "AAC",
+    company: "Aus adas ddasd ad sadsad asdsad",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
     company: "Aus",
     price: "200",
     change: "+2.01",
@@ -28,7 +35,7 @@ const Expenses = () => {
       <div className="container">
         <div className="expense-table">
           <div>
-            <Table cols={cols} rows={rows} />
+            <Table tableHeight="100%" cols={cols} rows={rows} />
           </div>
         </div>
         <div className="right">
