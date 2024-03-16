@@ -1,17 +1,35 @@
 import "./Table.scss";
 
 interface TableProps {
+  title?: string;
   tableHeight?: string;
   rows: { [key: string]: string }[];
   cols: { label: string; value: string }[];
 }
 
-const Table = ({ cols = [], rows = [], tableHeight = "300px" }: TableProps) => {
+const Table = ({
+  title = "title",
+  cols = [],
+  rows = [],
+  tableHeight = "300px",
+}: TableProps) => {
   /**
    * TSX
    */
   return (
     <div className="table">
+      {/* table toolbar*/}
+      <div className="table-toolbar">
+        <div className="toolbar-left">
+          <p>{title}</p>
+        </div>
+        <div className="toolbar-right">
+          <div></div>
+          <div>
+            <input type="text" placeholder="search..." />
+          </div>
+        </div>
+      </div>
       {/* table head */}
       <div className="table-header">
         <table>
