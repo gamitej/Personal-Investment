@@ -87,6 +87,14 @@
     }
   }
 
+  .table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid lightgray;
+    padding: 0.8rem 1rem;
+  }
+
   /* for custom scrollbar for webkit browser*/
 
   ::-webkit-scrollbar {

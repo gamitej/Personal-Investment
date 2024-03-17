@@ -56,6 +56,11 @@ const Table = ({
           </tbody>
         </table>
       </div>
+      {/* table footer */}
+      <div className="table-footer">
+        <div>1 record of 100</div>
+        <div>pagination</div>
+      </div>
     </div>
   );
 };
