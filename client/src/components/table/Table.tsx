@@ -1,4 +1,10 @@
 import "./Table.scss";
+import { useState } from "react";
+// icons
+import {
+  FaRegArrowAltCircleLeft,
+  FaRegArrowAltCircleRight,
+} from "react-icons/fa";
 
 interface TableProps {
   title?: string;
@@ -13,6 +19,10 @@ const Table = ({
   rows = [],
   tableHeight = "300px",
 }: TableProps) => {
+  const totalItems = rows.length;
+
+  const [pageNo, setPageNo] = useState<number>(0);
+
   /**
    * TSX
    */
@@ -58,8 +68,21 @@ const Table = ({
       </div>
       {/* table footer */}
       <div className="table-footer">
-        <div>1 record of 100</div>
-        <div>pagination</div>
+        <div className="footer-left">Showing 1 of 3 entries</div>
+        <div className="footer-right">
+          <div
+            className={`${pageNo === 0 ? "active" : "icon"}`}
+            onClick={() => setPageNo((prev) => prev - 1)}
+          >
+            <FaRegArrowAltCircleLeft />
+          </div>
+          <div
+            className={`${pageNo === totalItems ? "active" : "icon"}`}
+            onClick={() => setPageNo((prev) => prev + 1)}
+          >
+            <FaRegArrowAltCircleRight />
+          </div>
+        </div>
       </div>
     </div>
   );
