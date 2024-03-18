@@ -21,7 +21,7 @@ const Table = ({
 }: TableProps) => {
   const showEntriesPerPage = 5;
   const totalItems = rows.length;
-  const totalPage = totalItems / showEntriesPerPage;
+  const totalPage = Math.ceil(totalItems / showEntriesPerPage);
 
   const [pageNo, setPageNo] = useState<number>(1);
 
@@ -91,7 +91,7 @@ const Table = ({
       {/* table footer */}
       <div className="table-footer">
         <div className="footer-left">
-          Showing {pageNo} of {Math.ceil(totalPage)} entries
+          Showing {pageNo} of {totalPage} entries
         </div>
         <div className="footer-right">
           <div
