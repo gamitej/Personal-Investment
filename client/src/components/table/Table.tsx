@@ -1,5 +1,5 @@
 import "./Table.scss";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 // icons
 import {
   FaRegArrowAltCircleLeft,
@@ -19,9 +19,31 @@ const Table = ({
   rows = [],
   tableHeight = "300px",
 }: TableProps) => {
+  const showEntriesPerPage = 5;
   const totalItems = rows.length;
+  const totalPage = totalItems / showEntriesPerPage;
 
-  const [pageNo, setPageNo] = useState<number>(0);
+  const [pageNo, setPageNo] = useState<number>(1);
+
+  const handleNext = () => {
+    if (pageNo < totalPage) {
+      setPageNo((prev) => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (pageNo > 1) {
+      setPageNo((prev) => prev - 1);
+    }
+  };
+
+  const paginatedData = useMemo(() => {
+    const data = rows.slice(
+      (pageNo - 1) * showEntriesPerPage,
+      pageNo * showEntriesPerPage
+    );
+    return data;
+  }, [rows, pageNo]);
 
   /**
    * TSX
@@ -56,7 +78,7 @@ const Table = ({
       <div className="table-body" style={{ height: tableHeight }}>
         <table>
           <tbody>
-            {rows.map((item, idx) => (
+            {paginatedData.map((item, idx) => (
               <tr key={idx}>
                 {cols.map(({ value }, colsIdx) => (
                   <td key={`cols-${colsIdx}`}>{item[value]}</td>
@@ -68,17 +90,19 @@ const Table = ({
       </div>
       {/* table footer */}
       <div className="table-footer">
-        <div className="footer-left">Showing 1 of 3 entries</div>
+        <div className="footer-left">
+          Showing {pageNo} of {Math.ceil(totalPage)} entries
+        </div>
         <div className="footer-right">
           <div
-            className={`${pageNo === 0 ? "active" : "icon"}`}
-            onClick={() => setPageNo((prev) => prev - 1)}
+            className={`${pageNo === 1 ? "active" : "icon"}`}
+            onClick={handlePrev}
           >
             <FaRegArrowAltCircleLeft />
           </div>
           <div
-            className={`${pageNo === totalItems ? "active" : "icon"}`}
-            onClick={() => setPageNo((prev) => prev + 1)}
+            className={`${pageNo === totalPage ? "active" : "icon"}`}
+            onClick={handleNext}
           >
             <FaRegArrowAltCircleRight />
           </div>

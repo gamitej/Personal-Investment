@@ -24,6 +24,160 @@ const rows = [
     change: "+2.01",
     date: "2 Mar",
   },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
+  {
+    code: "AAC",
+    company: "Aus",
+    price: "200",
+    change: "+2.01",
+    date: "2 Mar",
+  },
 ];
 
 const Expenses = () => {
@@ -35,7 +189,7 @@ const Expenses = () => {
       <div className="container">
         <div className="expense-table">
           <div>
-            <Table tableHeight="100%" cols={cols} rows={rows} />
+            <Table tableHeight="300px" cols={cols} rows={rows} />
           </div>
         </div>
         <div className="right">
