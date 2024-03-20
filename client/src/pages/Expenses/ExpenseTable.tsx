@@ -85,7 +85,14 @@ const rows = [
   },
 ];
 
-const ExpenseTable = () => {
+interface ExpenseTableProps {
+  handleClick: () => void;
+}
+
+const ExpenseTable = ({ handleClick }: ExpenseTableProps) => {
+  /**
+   * TSX
+   */
   return (
     <div>
       <Table
@@ -96,7 +103,7 @@ const ExpenseTable = () => {
         tableHeight="calc(100vh - 25.5rem)"
         additionalLeftSideToolbarComp={
           <div className="additional-comp">
-            <AddButton handleClick={() => {}} />
+            <AddButton handleClick={handleClick} />
             <Dropdown onChange={() => {}} options={[]} selectedValue={null} />
           </div>
         }
