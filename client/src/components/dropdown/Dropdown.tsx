@@ -32,6 +32,7 @@ const Dropdown = ({
 
   // =================== USE-EFFECT ===================
 
+  // Effect to handle clicks outside the dropdown
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -48,6 +49,7 @@ const Dropdown = ({
     };
   }, [dropdownRef]);
 
+  // Function to calculate the dropdown position
   const calculateDropdownPosition = useCallback(() => {
     if (!dropdownRef.current) return;
 
