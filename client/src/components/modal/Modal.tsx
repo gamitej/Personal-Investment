@@ -1,12 +1,22 @@
 // import { useCallback, useEffect, useState } from "react";
 import "./Modal.scss";
+import { CgClose } from "react-icons/cg";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
+  modalWidth?: string;
+  modalHeight?: string;
+  children: React.ReactNode;
 }
 
-const Modal = ({ isOpen, onClose }: ModalProps) => {
+const Modal = ({
+  isOpen,
+  onClose,
+  children,
+  modalWidth = "20rem",
+  modalHeight = "20rem",
+}: ModalProps) => {
   if (!isOpen) return null;
 
   /**
@@ -23,9 +33,16 @@ const Modal = ({ isOpen, onClose }: ModalProps) => {
         }`,
       }}
     >
-      <div className="modal">
-        hi
-        <div onClick={onClose}>close</div>
+      <div className="modal" style={{ width: modalWidth, height: modalHeight }}>
+        <div className="modal-head">
+          <h3>TITLE</h3>
+          <div onClick={onClose} className="close">
+            <CgClose />
+          </div>
+        </div>
+        <div className="border-bottom"></div>
+        {/* body */}
+        <div className="children">{children}</div>
       </div>
     </div>
   );

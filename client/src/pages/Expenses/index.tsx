@@ -15,7 +15,9 @@ const Expenses = () => {
       <div className="container">
         <div className="expense-table">
           <ExpenseTable handleClick={() => setIsModalOpen(true)} />
-          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+            hi
+          </Modal>
         </div>
         <div className="right">
           <div className="expense-right-top">
