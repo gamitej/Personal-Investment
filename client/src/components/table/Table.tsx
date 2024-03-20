@@ -12,7 +12,7 @@ interface TableProps {
   tableHeight?: string;
   showEntriesPerPage?: number;
   rows: { [key: string]: string }[];
-  cols: { label: string; value: string }[];
+  cols: { label: string; value: string; width?: string }[];
   additionalLeftSideToolbarComp?: React.ReactNode;
 }
 
@@ -56,9 +56,9 @@ const Table = ({
    * TSX
    */
   return (
-    <div className="table">
+    <div className="table-main">
       <h3 className="title">{title}</h3>
-      {/* table toolbar*/}
+      {/* =============== table toolbar =============== */}
       <div className="table-toolbar">
         <div className="toolbar-left">{additionalLeftSideToolbarComp}</div>
         <div className="toolbar-right">
@@ -68,33 +68,42 @@ const Table = ({
           </div>
         </div>
       </div>
-      {/* table head */}
-      <div className="table-header">
-        <table>
-          <thead>
-            <tr>
-              {cols.map((item, idx) => (
-                <th key={idx}>{item.label}</th>
-              ))}
-            </tr>
-          </thead>
-        </table>
-      </div>
-      {/* table body */}
-      <div className="table-body" style={{ height: tableHeight }}>
-        <table>
-          <tbody>
-            {selectedPageRowsData.map((item, idx) => (
-              <tr key={idx}>
-                {cols.map(({ value }, colsIdx) => (
-                  <td key={`cols-${colsIdx}`}>{item[value]}</td>
+      <div className="table">
+        {/* ================== table head ================ */}
+        <div className="table-header">
+          <table>
+            <thead>
+              <tr>
+                {cols.map((item, idx) => (
+                  <th key={idx} style={{ width: item.width }}>
+                    {item.label}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+          </table>
+        </div>
+        {/* ================= table body ================ */}
+        <div className="table-body" style={{ height: tableHeight }}>
+          <table>
+            <tbody>
+              {selectedPageRowsData.map((item, idx) => (
+                <tr key={idx}>
+                  {cols.map(({ value, width }, colsIdx) => (
+                    <td
+                      key={`cols-${colsIdx}`}
+                      style={{ width: width ? width : "5rem" }}
+                    >
+                      {item[value]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-      {/* table footer */}
+      {/* ============= table footer =============== */}
       <div className="table-footer">
         <div className="footer-left">
           Showing {pageNo} of {totalPage} entries
