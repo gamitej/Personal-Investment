@@ -1,47 +1,30 @@
 import "./Table.scss";
-import { useMemo, useState } from "react";
-// icons
-import {
-  FaRegArrowAltCircleLeft,
-  FaRegArrowAltCircleRight,
-} from "react-icons/fa";
+import { FC, useMemo, useState } from "react";
 // components
+import TableToolbar from "./TableToolbar";
+import TableFooter from "./TableFooter";
+import TableBody from "./TableBody";
+import TableHead from "./TableHead";
+// types
+import { TableBodyProps, TableToolbarProps } from "./type";
 
-interface TableProps {
+interface TableProps extends TableBodyProps, TableToolbarProps {
   title: string;
-  tableHeight?: string;
   showEntriesPerPage?: number;
-  rows: { [key: string]: string }[];
-  cols: { label: string; value: string; width?: string }[];
-  additionalLeftSideToolbarComp?: React.ReactNode;
 }
 
-const Table = ({
+const Table: FC<TableProps> = ({
   title = "title",
   cols = [],
   rows = [],
   tableHeight = "300px",
   showEntriesPerPage = 5,
   additionalLeftSideToolbarComp,
-}: TableProps) => {
+}) => {
   const totalItems = rows.length;
   const totalPage = Math.ceil(totalItems / showEntriesPerPage);
 
   const [pageNo, setPageNo] = useState<number>(1);
-
-  // ================== EVENT HANDLERS =================
-
-  const handleNext = () => {
-    if (pageNo < totalPage) {
-      setPageNo((prev) => prev + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (pageNo > 1) {
-      setPageNo((prev) => prev - 1);
-    }
-  };
 
   // function to return selected page rows
   const selectedPageRowsData = useMemo(() => {
@@ -58,71 +41,26 @@ const Table = ({
   return (
     <div className="table-main">
       <h3 className="title">{title}</h3>
-      {/* =============== table toolbar =============== */}
-      <div className="table-toolbar">
-        <div className="toolbar-left">{additionalLeftSideToolbarComp}</div>
-        <div className="toolbar-right">
-          <div></div>
-          <div>
-            <input type="text" placeholder="search..." />
-          </div>
-        </div>
-      </div>
+      {/* table toolbar */}
+      <TableToolbar
+        additionalLeftSideToolbarComp={additionalLeftSideToolbarComp}
+      />
       <div className="table">
-        {/* ================== table head ================ */}
-        <div className="table-header">
-          <table>
-            <thead>
-              <tr>
-                {cols.map((item, idx) => (
-                  <th key={idx} style={{ width: item.width }}>
-                    {item.label}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-          </table>
-        </div>
-        {/* ================= table body ================ */}
-        <div className="table-body" style={{ height: tableHeight }}>
-          <table>
-            <tbody>
-              {selectedPageRowsData.map((item, idx) => (
-                <tr key={idx}>
-                  {cols.map(({ value, width }, colsIdx) => (
-                    <td
-                      key={`cols-${colsIdx}`}
-                      style={{ width: width ? width : "5rem" }}
-                    >
-                      {item[value]}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {/* table head */}
+        <TableHead cols={cols} />
+        {/* table body */}
+        <TableBody
+          cols={cols}
+          tableHeight={tableHeight}
+          rows={selectedPageRowsData}
+        />
       </div>
-      {/* ============= table footer =============== */}
-      <div className="table-footer">
-        <div className="footer-left">
-          Showing {pageNo} of {totalPage} entries
-        </div>
-        <div className="footer-right">
-          <div
-            className={`${pageNo === 1 ? "active" : "icon"}`}
-            onClick={handlePrev}
-          >
-            <FaRegArrowAltCircleLeft />
-          </div>
-          <div
-            className={`${pageNo === totalPage ? "active" : "icon"}`}
-            onClick={handleNext}
-          >
-            <FaRegArrowAltCircleRight />
-          </div>
-        </div>
-      </div>
+      {/* table footer */}
+      <TableFooter
+        pageNo={pageNo}
+        totalPage={totalPage}
+        setPageNo={setPageNo}
+      />
     </div>
   );
 };
