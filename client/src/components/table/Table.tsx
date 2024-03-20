@@ -5,7 +5,7 @@ import {
   FaRegArrowAltCircleLeft,
   FaRegArrowAltCircleRight,
 } from "react-icons/fa";
-import Dropdown from "../dropdown/Dropdown";
+// components
 
 interface TableProps {
   title: string;
@@ -13,6 +13,7 @@ interface TableProps {
   showEntriesPerPage?: number;
   rows: { [key: string]: string }[];
   cols: { label: string; value: string }[];
+  additionalLeftSideToolbarComp?: React.ReactNode;
 }
 
 const Table = ({
@@ -21,6 +22,7 @@ const Table = ({
   rows = [],
   tableHeight = "300px",
   showEntriesPerPage = 5,
+  additionalLeftSideToolbarComp,
 }: TableProps) => {
   const totalItems = rows.length;
   const totalPage = Math.ceil(totalItems / showEntriesPerPage);
@@ -58,10 +60,7 @@ const Table = ({
       <h3 className="title">{title}</h3>
       {/* table toolbar*/}
       <div className="table-toolbar">
-        <div className="toolbar-left">
-          <button>Add New</button>
-          <Dropdown onChange={() => {}} options={[]} selectedValue={null} />
-        </div>
+        <div className="toolbar-left">{additionalLeftSideToolbarComp}</div>
         <div className="toolbar-right">
           <div></div>
           <div>

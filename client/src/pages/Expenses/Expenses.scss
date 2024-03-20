@@ -16,7 +16,13 @@
     .expense-table {
       width: 70%;
       height: calc(100vh - 11rem);
-      //   background-color: lightcoral;
+
+      .additional-comp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8rem;
+      }
     }
 
     .right {

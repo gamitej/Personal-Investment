@@ -1,5 +1,7 @@
+import Dropdown from "@/components/dropdown/Dropdown";
 import "./Expenses.scss";
 import Table from "@/components/table/Table";
+import AddButton from "@/components/button/AddButton";
 
 const cols = [
   { label: "Code", value: "code" },
@@ -194,6 +196,16 @@ const Expenses = () => {
               tableHeight="300px"
               cols={cols}
               rows={rows}
+              additionalLeftSideToolbarComp={
+                <div className="additional-comp">
+                  <AddButton handleClick={() => {}} />
+                  <Dropdown
+                    onChange={() => {}}
+                    options={[]}
+                    selectedValue={null}
+                  />
+                </div>
+              }
             />
           </div>
         </div>
