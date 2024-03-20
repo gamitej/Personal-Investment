@@ -5,6 +5,7 @@ import {
   FaRegArrowAltCircleLeft,
   FaRegArrowAltCircleRight,
 } from "react-icons/fa";
+import Dropdown from "../dropdown/Dropdown";
 
 interface TableProps {
   title: string;
@@ -57,7 +58,10 @@ const Table = ({
       <h3 className="title">{title}</h3>
       {/* table toolbar*/}
       <div className="table-toolbar">
-        <div className="toolbar-left"></div>
+        <div className="toolbar-left">
+          <button>Add New</button>
+          <Dropdown onChange={() => {}} options={[]} selectedValue={null} />
+        </div>
         <div className="toolbar-right">
           <div></div>
           <div>

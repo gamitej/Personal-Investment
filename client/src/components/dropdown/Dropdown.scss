@@ -3,9 +3,12 @@
   user-select: none;
   position: relative;
   border-radius: 0.5em;
-  width: 8rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+  &.active {
+    outline: 2px solid #5d87ff;
+  }
 
   .dropdown-title {
     font-size: 1.2rem;
@@ -17,14 +20,14 @@
     color: rgb(82, 80, 80);
 
     .icon {
-      font-size: 1rem;
-      margin: 0.3rem 0rem 0rem 0.3rem;
+      font-size: 1.4rem;
+      margin: 0rem 0rem 0rem 0.3rem;
     }
   }
 
   .dropdown-options {
     position: absolute;
-    width: 8rem;
+    width: 100%;
     top: 2.6rem;
     left: 0;
     background-color: #ffffff;
@@ -43,7 +46,7 @@
       color: rgb(82, 80, 80);
       padding: 0.3rem 0.8rem;
       &:hover {
-        background-color: rgb(217, 242, 250);
+        background-color: rgb(238, 238, 238);
       }
     }
 

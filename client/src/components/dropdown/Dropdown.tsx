@@ -1,18 +1,25 @@
 import { useState } from "react";
 import "./Dropdown.scss";
-import { FaAngleDown } from "react-icons/fa6";
+import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
 interface DropdownProps {
+  width?: string;
+  label?: string;
   selectedValue: string | null;
-  options: { label: string; value: string }[];
   onChange: (value: string) => void;
+  options: { label: string; value: string }[];
 }
 
-const Dropdown = ({ selectedValue, options = [], onChange }: DropdownProps) => {
-  const [show, setShow] = useState(false);
+const Dropdown = ({
+  width = "8rem",
+  selectedValue,
+  options = [],
+  onChange,
+}: DropdownProps) => {
+  const [showOptions, setShowOptions] = useState(false);
 
   const handleOpen = () => {
-    setShow((prev) => !prev);
+    setShowOptions((prev) => !prev);
   };
 
   const handleChange = (value: string) => {
@@ -24,22 +31,32 @@ const Dropdown = ({ selectedValue, options = [], onChange }: DropdownProps) => {
    * TSX
    */
   return (
-    <div className="dropdown">
+    <div className={`dropdown ${showOptions && "active"}`} style={{ width }}>
       <div className="dropdown-title" onClick={handleOpen}>
         <div>{selectedValue === null ? "select" : selectedValue} </div>
-        <FaAngleDown className="icon" />
+        {showOptions ? (
+          <IoMdArrowDropdown className="icon" />
+        ) : (
+          <IoMdArrowDropright className="icon" />
+        )}
       </div>
-      {show && (
+      {showOptions && (
         <div className="dropdown-options">
-          {options.map((item, idx) => (
-            <div
-              className="option"
-              key={`${idx}-options`}
-              onClick={() => handleChange(item.value)}
-            >
-              {item.label}
+          {options?.length === 0 && (
+            <div className="option" onClick={() => setShowOptions(false)}>
+              None
             </div>
-          ))}
+          )}
+          {options?.length > 0 &&
+            options?.map((item, idx) => (
+              <div
+                className="option"
+                key={`${idx}-options`}
+                onClick={() => handleChange(item.value)}
+              >
+                {item.label}
+              </div>
+            ))}
         </div>
       )}
     </div>
