@@ -95,7 +95,7 @@ const Dropdown = ({
                 key={`${idx}-options`}
                 onClick={() => handleChange(item.value)}
               >
-                {item.label}
+                <p title={`${item.label}`}>{item.label}</p>
               </div>
             ))}
         </div>
