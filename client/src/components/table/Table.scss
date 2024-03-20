@@ -109,18 +109,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      font-size: 1.5rem;
-      color: #5d87ff;
+      gap: 0.8rem;
 
-      .icon {
-        &.active {
-          color: #abbdf0;
-        }
+      .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        font-size: 1.5rem;
+        color: #5d87ff;
 
-        &:hover {
-          cursor: pointer;
-          color: #1140c0;
+        .icon {
+          &.active {
+            color: #abbdf0;
+          }
+
+          &:hover {
+            cursor: pointer;
+            color: #1140c0;
+          }
         }
       }
     }

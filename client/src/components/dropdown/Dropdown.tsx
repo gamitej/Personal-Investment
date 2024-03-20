@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "./Dropdown.scss";
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
 interface DropdownProps {
   width?: string;
   label?: string;
-  selectedValue: string | null;
-  onChange: (value: string) => void;
-  options: { label: string; value: string }[];
+  selectedValue: number | string | null;
+  onChange: (value: string | number) => void;
+  options: { label: string | number; value: string | number }[];
 }
 
 const Dropdown = ({
@@ -16,22 +16,58 @@ const Dropdown = ({
   options = [],
   onChange,
 }: DropdownProps) => {
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [showOptions, setShowOptions] = useState(false);
+
+  // ================ EVENT-HANDLERS =================
 
   const handleOpen = () => {
     setShowOptions((prev) => !prev);
   };
 
-  const handleChange = (value: string) => {
+  const handleChange = (value: string | number) => {
     handleOpen();
     onChange(value);
   };
+
+  // =================== USE-EFFECT ===================
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowOptions(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
+
+  const calculateDropdownPosition = useCallback(() => {
+    if (!dropdownRef.current) return;
+
+    const dropdownRect = dropdownRef.current.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const heightDiff = Math.abs(dropdownRect.bottom - windowHeight);
+
+    if (heightDiff < 100) return { bottom: "2.6rem" };
+    return { top: "2.6rem" };
+  }, []);
 
   /**
    * TSX
    */
   return (
-    <div className={`dropdown ${showOptions && "active"}`} style={{ width }}>
+    <div
+      ref={dropdownRef}
+      className={`dropdown ${showOptions && "active"}`}
+      style={{ width }}
+    >
       <div className="dropdown-title" onClick={handleOpen}>
         <div>{selectedValue === null ? "select" : selectedValue} </div>
         {showOptions ? (
@@ -41,7 +77,10 @@ const Dropdown = ({
         )}
       </div>
       {showOptions && (
-        <div className="dropdown-options">
+        <div
+          className="dropdown-options"
+          style={{ ...calculateDropdownPosition() }}
+        >
           {options?.length === 0 && (
             <div className="option" onClick={() => setShowOptions(false)}>
               None

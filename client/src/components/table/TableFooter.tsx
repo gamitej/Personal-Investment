@@ -3,17 +3,25 @@ import {
   FaRegArrowAltCircleLeft,
   FaRegArrowAltCircleRight,
 } from "react-icons/fa";
+// components
+import Dropdown from "../dropdown/Dropdown";
+// data
+import { paginationDropDownOptions } from "./data";
 
 interface TableFooterProps {
   pageNo: number;
   totalPage: number;
+  paginationValue: number;
   setPageNo: (num: number) => void;
+  setPaginationValue: (val: any) => void;
 }
 
 const TableFooter: React.FC<TableFooterProps> = ({
   pageNo,
   totalPage,
   setPageNo,
+  paginationValue,
+  setPaginationValue,
 }) => {
   const handleNext = () => {
     if (pageNo < totalPage) {
@@ -35,17 +43,25 @@ const TableFooter: React.FC<TableFooterProps> = ({
         Showing {pageNo} of {totalPage} entries
       </div>
       <div className="footer-right">
-        <div
-          className={`${pageNo === 1 ? "active" : "icon"}`}
-          onClick={handlePrev}
-        >
-          <FaRegArrowAltCircleLeft />
-        </div>
-        <div
-          className={`${pageNo === totalPage ? "active" : "icon"}`}
-          onClick={handleNext}
-        >
-          <FaRegArrowAltCircleRight />
+        <Dropdown
+          width="5rem"
+          options={paginationDropDownOptions}
+          onChange={setPaginationValue}
+          selectedValue={paginationValue}
+        />
+        <div className="pagination">
+          <div
+            className={`${pageNo === 1 ? "active" : "icon"}`}
+            onClick={handlePrev}
+          >
+            <FaRegArrowAltCircleLeft />
+          </div>
+          <div
+            className={`${pageNo === totalPage ? "active" : "icon"}`}
+            onClick={handleNext}
+          >
+            <FaRegArrowAltCircleRight />
+          </div>
         </div>
       </div>
     </div>

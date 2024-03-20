@@ -14,7 +14,7 @@ const options = [
 
 const Performance = () => {
   const [activePerformaceSection, setActivePerformaceSection] =
-    useState<string>("stock");
+    useState<any>("stock");
 
   const { series = [], xAxisData = [] } = useMemo(() => {
     if (activePerformaceSection in seriesData)

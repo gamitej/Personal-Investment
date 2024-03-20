@@ -10,7 +10,7 @@ import { TableBodyProps, TableToolbarProps } from "./type";
 
 interface TableProps extends TableBodyProps, TableToolbarProps {
   title: string;
-  showEntriesPerPage?: number;
+  showEntriesPerPage?: 5 | 10 | 15 | 25;
 }
 
 const Table: FC<TableProps> = ({
@@ -21,19 +21,21 @@ const Table: FC<TableProps> = ({
   showEntriesPerPage = 5,
   additionalLeftSideToolbarComp,
 }) => {
-  const totalItems = rows.length;
-  const totalPage = Math.ceil(totalItems / showEntriesPerPage);
-
   const [pageNo, setPageNo] = useState<number>(1);
+  const [paginationValue, setPaginationValue] =
+    useState<any>(showEntriesPerPage);
+
+  const totalItems = rows.length;
+  const totalPage = Math.ceil(totalItems / paginationValue);
 
   // function to return selected page rows
   const selectedPageRowsData = useMemo(() => {
     const data = rows.slice(
-      (pageNo - 1) * showEntriesPerPage,
-      pageNo * showEntriesPerPage
+      (pageNo - 1) * paginationValue,
+      pageNo * paginationValue
     );
     return data;
-  }, [rows, pageNo, showEntriesPerPage]);
+  }, [rows, pageNo, paginationValue]);
 
   /**
    * TSX
@@ -60,6 +62,8 @@ const Table: FC<TableProps> = ({
         pageNo={pageNo}
         totalPage={totalPage}
         setPageNo={setPageNo}
+        paginationValue={paginationValue}
+        setPaginationValue={setPaginationValue}
       />
     </div>
   );

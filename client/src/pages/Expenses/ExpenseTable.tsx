@@ -96,7 +96,7 @@ const ExpenseTable = ({ handleClick }: ExpenseTableProps) => {
   return (
     <div>
       <Table
-        showEntriesPerPage={2}
+        showEntriesPerPage={5}
         cols={cols}
         rows={rows}
         title="Expenses"
