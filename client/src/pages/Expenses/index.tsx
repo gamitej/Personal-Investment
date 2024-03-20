@@ -189,7 +189,12 @@ const Expenses = () => {
       <div className="container">
         <div className="expense-table">
           <div>
-            <Table tableHeight="300px" cols={cols} rows={rows} />
+            <Table
+              title="Expenses"
+              tableHeight="300px"
+              cols={cols}
+              rows={rows}
+            />
           </div>
         </div>
         <div className="right">

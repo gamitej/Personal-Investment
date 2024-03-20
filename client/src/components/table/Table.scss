@@ -6,6 +6,15 @@
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 
+  h3 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #5d87ff;
+    text-transform: capitalize;
+    margin-top: 1rem;
+  }
+
   .table-toolbar {
     padding: 1rem;
     display: flex;
@@ -17,12 +26,6 @@
       justify-content: center;
       align-items: center;
       gap: 0.5rem;
-      p {
-        color: rgb(87, 84, 84);
-        text-transform: capitalize;
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
     }
 
     .toolbar-right {
@@ -33,11 +36,12 @@
           padding: 0.5rem 1rem;
           border-radius: 0.5rem;
           background: transparent;
-          box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-            rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+          border: 1px solid gray;
+          // box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+          //   rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
           &:focus {
-            outline: 1px solid #5d87ff;
+            outline: 2px solid gray;
           }
         }
       }

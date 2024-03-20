@@ -7,8 +7,9 @@ import {
 } from "react-icons/fa";
 
 interface TableProps {
-  title?: string;
+  title: string;
   tableHeight?: string;
+  showEntriesPerPage?: number;
   rows: { [key: string]: string }[];
   cols: { label: string; value: string }[];
 }
@@ -18,12 +19,14 @@ const Table = ({
   cols = [],
   rows = [],
   tableHeight = "300px",
+  showEntriesPerPage = 5,
 }: TableProps) => {
-  const showEntriesPerPage = 5;
   const totalItems = rows.length;
   const totalPage = Math.ceil(totalItems / showEntriesPerPage);
 
   const [pageNo, setPageNo] = useState<number>(1);
+
+  // ================== EVENT HANDLERS =================
 
   const handleNext = () => {
     if (pageNo < totalPage) {
@@ -37,24 +40,24 @@ const Table = ({
     }
   };
 
-  const paginatedData = useMemo(() => {
+  // function to return selected page rows
+  const selectedPageRowsData = useMemo(() => {
     const data = rows.slice(
       (pageNo - 1) * showEntriesPerPage,
       pageNo * showEntriesPerPage
     );
     return data;
-  }, [rows, pageNo]);
+  }, [rows, pageNo, showEntriesPerPage]);
 
   /**
    * TSX
    */
   return (
     <div className="table">
+      <h3 className="title">{title}</h3>
       {/* table toolbar*/}
       <div className="table-toolbar">
-        <div className="toolbar-left">
-          <p>{title}</p>
-        </div>
+        <div className="toolbar-left"></div>
         <div className="toolbar-right">
           <div></div>
           <div>
@@ -78,7 +81,7 @@ const Table = ({
       <div className="table-body" style={{ height: tableHeight }}>
         <table>
           <tbody>
-            {paginatedData.map((item, idx) => (
+            {selectedPageRowsData.map((item, idx) => (
               <tr key={idx}>
                 {cols.map(({ value }, colsIdx) => (
                   <td key={`cols-${colsIdx}`}>{item[value]}</td>
