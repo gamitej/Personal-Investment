@@ -21,21 +21,31 @@ const Table: FC<TableProps> = ({
   showEntriesPerPage = 5,
   additionalLeftSideToolbarComp,
 }) => {
+  const [searchText, setSearchText] = useState("");
   const [pageNo, setPageNo] = useState<number>(1);
   const [paginationValue, setPaginationValue] =
     useState<any>(showEntriesPerPage);
+
+  // Function to search text in the row items
+  const searchedRowsData = useMemo(() => {
+    return rows.filter((rowData) => {
+      return Object.values(rowData).some((rowValue) =>
+        rowValue.toLowerCase().includes(searchText.toLowerCase())
+      );
+    });
+  }, [searchText, rows]);
 
   const totalItems = rows.length;
   const totalPage = Math.ceil(totalItems / paginationValue);
 
   // function to return selected page rows
   const selectedPageRowsData = useMemo(() => {
-    const data = rows.slice(
+    const data = searchedRowsData.slice(
       (pageNo - 1) * paginationValue,
       pageNo * paginationValue
     );
     return data;
-  }, [rows, pageNo, paginationValue]);
+  }, [searchedRowsData, pageNo, paginationValue]);
 
   /**
    * TSX
@@ -45,6 +55,8 @@ const Table: FC<TableProps> = ({
       <h3 className="title">{title}</h3>
       {/* table toolbar */}
       <TableToolbar
+        searchText={searchText}
+        setSearchText={setSearchText}
         additionalLeftSideToolbarComp={additionalLeftSideToolbarComp}
       />
       <div className="table">

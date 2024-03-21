@@ -1,7 +1,14 @@
 import { FC } from "react";
 import { TableToolbarProps } from "./type";
 
-const TableToolbar: FC<TableToolbarProps> = ({
+interface TableToolbarPageProps extends TableToolbarProps {
+  searchText: string;
+  setSearchText: (val: string) => void;
+}
+
+const TableToolbar: FC<TableToolbarPageProps> = ({
+  searchText,
+  setSearchText,
   additionalLeftSideToolbarComp,
 }) => {
   /**
@@ -13,7 +20,12 @@ const TableToolbar: FC<TableToolbarProps> = ({
       <div className="toolbar-right">
         <div></div>
         <div>
-          <input type="text" placeholder="search..." />
+          <input
+            type="text"
+            value={searchText}
+            placeholder="search..."
+            onChange={({ target }) => setSearchText(target.value)}
+          />
         </div>
       </div>
     </div>
