@@ -40,7 +40,7 @@ const TableFooter: React.FC<TableFooterProps> = ({
   return (
     <div className="table-footer">
       <div className="footer-left">
-        Showing {pageNo} of {totalPage} entries
+        Showing {totalPage > 0 ? pageNo : 0} of {totalPage} entries
       </div>
       <div className="footer-right">
         <Dropdown
