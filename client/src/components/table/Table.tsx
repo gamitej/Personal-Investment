@@ -35,7 +35,7 @@ const Table: FC<TableProps> = ({
     });
   }, [searchText, rows]);
 
-  const totalItems = rows.length;
+  const totalItems = searchedRowsData.length;
   const totalPage = Math.ceil(totalItems / paginationValue);
 
   // function to return selected page rows
