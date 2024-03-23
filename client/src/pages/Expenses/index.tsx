@@ -3,6 +3,7 @@ import "./Expenses.scss";
 import ExpenseTable from "./ExpenseTable";
 import MajorExpense from "./MajorExpense";
 import { useState } from "react";
+import AddButton from "@/components/button/AddButton";
 
 const Expenses = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,7 +22,11 @@ const Expenses = () => {
         </div>
         <div className="right">
           <div className="expense-right-top">
+            <h3>Monthy Expense</h3>
             <MajorExpense />
+            <div className="add-btn">
+              <AddButton size="sm" handleClick={() => setIsModalOpen(true)} />
+            </div>
           </div>
           <div className="expense-right-bottom">
             <div>Last 6 month expenses bar chart</div>

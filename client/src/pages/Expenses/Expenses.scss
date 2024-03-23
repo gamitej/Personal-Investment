@@ -34,8 +34,27 @@
 
       .expense-right-top {
         height: 60%;
-        background-color: lightgreen;
+        width: 100%;
+        position: relative;
+        border-radius: 0.5rem;
+        background-color: #ffffff;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+        h3 {
+          position: absolute;
+          top: 1rem;
+          left: 1rem;
+          color: #5d87ff;
+        }
+
+        .add-btn {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+        }
       }
+
       .expense-right-bottom {
         height: 40%;
         background-color: lightsalmon;
