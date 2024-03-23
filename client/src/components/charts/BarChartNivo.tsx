@@ -23,7 +23,7 @@ const BarChartNivo: FC<BarChartNivoProps> = ({
     colors={{ scheme: "nivo" }}
     valueScale={{ type: "linear" }}
     indexScale={{ type: "band", round: true }}
-    margin={{ top: 20, right: 20, bottom: 60, left: 60 }}
+    margin={{ top: 40, right: 20, bottom: 60, left: 60 }}
     keys={keys}
     defs={[
       {

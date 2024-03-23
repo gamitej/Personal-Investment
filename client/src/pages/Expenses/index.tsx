@@ -30,6 +30,7 @@ const Expenses = () => {
             </div>
           </div>
           <div className="expense-right-bottom">
+            <h3>Last 6 Months Expense</h3>
             <LastSixMonth />
           </div>
         </div>
