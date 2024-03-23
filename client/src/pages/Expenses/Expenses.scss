@@ -30,10 +30,10 @@
       height: calc(100vh - 11rem);
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1rem;
 
       .expense-right-top {
-        height: 60%;
+        height: 49%;
         width: 100%;
         position: relative;
         border-radius: 0.5rem;
@@ -56,8 +56,12 @@
       }
 
       .expense-right-bottom {
-        height: 40%;
-        background-color: lightsalmon;
+        height: 50%;
+        width: 100%;
+        border-radius: 0.5rem;
+        background-color: #ffffff;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
       }
     }
   }

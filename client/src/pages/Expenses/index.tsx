@@ -4,6 +4,7 @@ import ExpenseTable from "./ExpenseTable";
 import MajorExpense from "./MajorExpense";
 import { useState } from "react";
 import AddButton from "@/components/button/AddButton";
+import LastSixMonth from "./LastSixMonth";
 
 const Expenses = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,7 +30,7 @@ const Expenses = () => {
             </div>
           </div>
           <div className="expense-right-bottom">
-            <div>Last 6 month expenses bar chart</div>
+            <LastSixMonth />
           </div>
         </div>
       </div>
