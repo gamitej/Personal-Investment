@@ -58,8 +58,8 @@ const Dropdown = ({
     const windowHeight = window.innerHeight;
     const heightDiff = Math.abs(dropdownRect.bottom - windowHeight);
 
-    if (heightDiff < 100) return { bottom: "2.6rem" };
-    return { top: "2.6rem" };
+    if (heightDiff < 100) return { bottom: "2.8rem" };
+    return { top: "2.8rem" };
   }, []);
 
   /**
@@ -69,16 +69,25 @@ const Dropdown = ({
     <div
       ref={dropdownRef}
       className={`dropdown ${showOptions && "active"}`}
-      style={{ width }}
+      style={{ width: width }}
     >
-      <label>{label}</label>
+      {selectedValue !== null && <label>{label}</label>}
       <div className="dropdown-title" onClick={handleOpen}>
-        <div>{selectedValue === null ? "select" : selectedValue} </div>
-        {showOptions ? (
-          <IoMdArrowDropdown className="icon" />
-        ) : (
-          <IoMdArrowDropright className="icon" />
-        )}
+        <div
+          className="selected-option"
+          title={`${
+            selectedValue === null ? `Select ${label}` : selectedValue
+          }`}
+        >
+          {selectedValue === null ? `Select ${label}` : selectedValue}
+        </div>
+        <div>
+          {showOptions ? (
+            <IoMdArrowDropdown className="icon" />
+          ) : (
+            <IoMdArrowDropright className="icon" />
+          )}
+        </div>
       </div>
       {showOptions && (
         <div
