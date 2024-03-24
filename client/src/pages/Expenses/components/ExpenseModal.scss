@@ -1,0 +1,51 @@
+.expense-modal {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .input-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    input[type="date"] {
+      border: none;
+      border-radius: 0.2rem;
+      padding: 0.8rem 0.5rem;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+        rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+
+      &:hover {
+        outline: 2px solid #5d87ff;
+      }
+    }
+
+    input[type="number"] {
+      border: none;
+      font-size: 1rem;
+      border-radius: 0.2rem;
+      padding: 0.7rem 0.8rem;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+        rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+
+      &:hover {
+        outline: 2px solid #5d87ff;
+      }
+    }
+
+    input[type="text"] {
+      border: none;
+      font-size: 1rem;
+      border-radius: 0.2rem;
+      padding: 0.7rem 0.8rem;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+        rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+
+      &:hover {
+        outline: 2px solid #5d87ff;
+      }
+    }
+  }
+}
