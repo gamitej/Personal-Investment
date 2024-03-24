@@ -33,13 +33,25 @@ const ExpenseModal: FC<ExpenseModalProps> = ({ isOpen, onClose }) => {
           />
           <div className="row-1">
             {/* date */}
-            <DateField id="date" onChange={() => {}} />
+            <DateField width="30%" value={null} id="date" onChange={() => {}} />
             {/* amount */}
-            <InputField label="Amount (Rs)" placeholder="Enter amount..." />
+            <InputField
+              width="70%"
+              id="amount"
+              value=""
+              type="number"
+              onChange={() => {}}
+              label="Amount (Rs)"
+              placeholder="Enter amount..."
+            />
           </div>
           <div className="row-2">
             {/* description */}
             <InputField
+              id="desc"
+              value=""
+              type="text"
+              onChange={() => {}}
               label="Description"
               placeholder="Enter description..."
             />

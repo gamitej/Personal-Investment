@@ -5,22 +5,26 @@ interface DateFieldProps {
   id: string;
   width?: string;
   label?: string;
-  onChange: () => void;
+  value: Date | null;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const DateField: FC<DateFieldProps> = ({
   id = "date-id",
+  value = null,
   width = "100%",
   label = "Select Date",
   onChange,
 }) => {
+  // Convert Date to string
+  const formattedValue = value ? value.toISOString().substring(0, 10) : "";
   /**
    * TSX
    */
   return (
     <div className="date-field" style={{ width: width }}>
       <label htmlFor={id}>{label}</label>
-      <input type="date" id={id} onChange={onChange} />
+      <input value={formattedValue} type="date" id={id} onChange={onChange} />
     </div>
   );
 };
