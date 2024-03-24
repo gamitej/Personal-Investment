@@ -3,14 +3,15 @@ import "./Dropdown.scss";
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
 interface DropdownProps {
+  label: string;
   width?: string;
-  label?: string;
   selectedValue: number | string | null;
   onChange: (value: string | number) => void;
   options: { label: string | number; value: string | number }[];
 }
 
 const Dropdown = ({
+  label = "label",
   width = "8rem",
   selectedValue,
   options = [],
@@ -70,6 +71,7 @@ const Dropdown = ({
       className={`dropdown ${showOptions && "active"}`}
       style={{ width }}
     >
+      <label>{label}</label>
       <div className="dropdown-title" onClick={handleOpen}>
         <div>{selectedValue === null ? "select" : selectedValue} </div>
         {showOptions ? (

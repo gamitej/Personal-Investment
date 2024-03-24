@@ -21,7 +21,12 @@ const ExpenseModal: FC<ExpenseModalProps> = ({ isOpen, onClose }) => {
     >
       <div className="expense-modal">
         <form onSubmit={() => {}}>
-          <Dropdown onChange={() => {}} options={[]} selectedValue={null} />
+          <Dropdown
+            label="For"
+            options={[]}
+            onChange={() => {}}
+            selectedValue={null}
+          />
           <input type="date" id="date" />
           <div className="input-field">
             <label>Amount (Rs)</label>

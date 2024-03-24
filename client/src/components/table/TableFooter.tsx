@@ -44,6 +44,7 @@ const TableFooter: React.FC<TableFooterProps> = ({
       </div>
       <div className="footer-right">
         <Dropdown
+          label=""
           width="5rem"
           options={paginationDropDownOptions}
           onChange={setPaginationValue}

@@ -48,7 +48,12 @@ const ExpenseTable = ({ handleClick }: ExpenseTableProps) => {
         additionalLeftSideToolbarComp={
           <div className="additional-comp">
             <AddButton handleClick={handleClick} />
-            <Dropdown onChange={() => {}} options={[]} selectedValue={null} />
+            <Dropdown
+              options={[]}
+              label="Periodicity"
+              onChange={() => {}}
+              selectedValue={null}
+            />
           </div>
         }
       />

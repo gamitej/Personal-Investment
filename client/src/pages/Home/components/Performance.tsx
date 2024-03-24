@@ -39,6 +39,7 @@ const Performance = () => {
         xAxisData={xAxisData}
         additionalRightHeadComp={
           <Dropdown
+            label="Type"
             options={options}
             selectedValue={activePerformaceSection}
             onChange={setActivePerformaceSection}
