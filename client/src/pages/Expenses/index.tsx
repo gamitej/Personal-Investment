@@ -1,10 +1,11 @@
-import Modal from "@/components/modal/Modal";
 import "./Expenses.scss";
-import ExpenseTable from "./ExpenseTable";
-import MajorExpense from "./MajorExpense";
 import { useState } from "react";
-import AddButton from "@/components/button/AddButton";
+// components
+import MajorExpense from "./MajorExpense";
+import ExpenseTable from "./ExpenseTable";
 import LastSixMonth from "./LastSixMonth";
+import Modal from "@/components/modal/Modal";
+import AddButton from "@/components/button/AddButton";
 
 const Expenses = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

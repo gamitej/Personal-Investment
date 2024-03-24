@@ -5,83 +5,27 @@ import Dropdown from "@/components/dropdown/Dropdown";
 import AddButton from "@/components/button/AddButton";
 
 const cols = [
-  { label: "Code", value: "code", width: "3rem" },
-  { label: "Company", value: "company", width: "10rem" },
-  { label: "Price", value: "price", width: "5rem" },
-  { label: "Change", value: "change", width: "3rem" },
+  { label: "S.no", value: "no", width: "2rem" },
   { label: "Date", value: "date", width: "3rem" },
+  { label: "Item", value: "item", width: "10rem" },
+  { label: "Amount", value: "amount", width: "5rem" },
+  { label: "For", value: "for", width: "3rem" },
 ];
 
 const rows = [
   {
-    code: "AAC",
-    company: "Aus adas ddasd ad sadsad asdsad",
-    price: "200",
-    change: "+2.01",
-    date: "hi",
+    no: "1",
+    date: "20-01-23",
+    item: "recharge",
+    amount: "Rs 3200",
+    for: "Home",
   },
   {
-    code: "AAC",
-    company: "Aus adas ddasd ad sadsad asdsad",
-    price: "200",
-    change: "+2.01",
-    date: "hi",
-  },
-  {
-    code: "AAC",
-    company: "Aus adas ddasd ad sadsad asdsad",
-    price: "200",
-    change: "+2.01",
-    date: "hi",
-  },
-  {
-    code: "bcc",
-    company: "Aus adas ddasd ad sadsad asdsad",
-    price: "200",
-    change: "+2.01",
-    date: "hi",
-  },
-  {
-    code: "AAC",
-    company: "Aus adas ddasd ad sadsad asdsad",
-    price: "200",
-    change: "+2.01",
-    date: "hi",
-  },
-  {
-    code: "AAC",
-    company: "Aus adas ddasd ad sadsad asdsad",
-    price: "200",
-    change: "+2.01",
-    date: "hi",
-  },
-  {
-    code: "bcd",
-    company: "Aus adas ddasd ad sadsad asdsad",
-    price: "200",
-    change: "+2.01",
-    date: "hi",
-  },
-  {
-    code: "bcd",
-    company: "Aus adas ddasd ad sadsad asdsad",
-    price: "34",
-    change: "+2.01",
-    date: "hi",
-  },
-  {
-    code: "bcd",
-    company: "Aus adas ddasd ad sadsad asdsad",
-    price: "34",
-    change: "+2.01",
-    date: "hi",
-  },
-  {
-    code: "AAC",
-    company: "Aus adas ddasd ad sadsad asdsad",
-    price: "34",
-    change: "+2.01",
-    date: "hi",
+    no: "1",
+    date: "20-01-23",
+    item: "recharge",
+    amount: "Rs 3200",
+    for: "Wife",
   },
 ];
 
