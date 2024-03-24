@@ -3,6 +3,7 @@ import "./Modal.scss";
 import { CgClose } from "react-icons/cg";
 
 interface ModalProps {
+  title: string;
   isOpen: boolean;
   onClose: () => void;
   modalWidth?: string;
@@ -14,6 +15,7 @@ const Modal = ({
   isOpen,
   onClose,
   children,
+  title = "TITLE",
   modalWidth = "20rem",
   modalHeight = "20rem",
 }: ModalProps) => {
@@ -35,7 +37,7 @@ const Modal = ({
     >
       <div className="modal" style={{ width: modalWidth, height: modalHeight }}>
         <div className="modal-head">
-          <h3>TITLE</h3>
+          <h3>{title}</h3>
           <div onClick={onClose} className="close">
             <CgClose />
           </div>

@@ -7,7 +7,7 @@ import AddButton from "@/components/button/AddButton";
 const cols = [
   { label: "S.no", value: "no", width: "2rem" },
   { label: "Date", value: "date", width: "3rem" },
-  { label: "Item", value: "item", width: "10rem" },
+  { label: "Description", value: "desc", width: "10rem" },
   { label: "Amount", value: "amount", width: "5rem" },
   { label: "For", value: "for", width: "3rem" },
 ];
@@ -16,14 +16,14 @@ const rows = [
   {
     no: "1",
     date: "20-01-23",
-    item: "recharge",
+    desc: "recharge",
     amount: "Rs 3200",
     for: "Home",
   },
   {
     no: "1",
     date: "20-01-23",
-    item: "recharge",
+    desc: "petrol",
     amount: "Rs 3200",
     for: "Wife",
   },

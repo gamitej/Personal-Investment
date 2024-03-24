@@ -4,7 +4,7 @@ import { useState } from "react";
 import MajorExpense from "./MajorExpense";
 import ExpenseTable from "./ExpenseTable";
 import LastSixMonth from "./LastSixMonth";
-import Modal from "@/components/modal/Modal";
+import ExpenseModal from "./components/ExpenseModal";
 import AddButton from "@/components/button/AddButton";
 
 const Expenses = () => {
@@ -19,9 +19,10 @@ const Expenses = () => {
         {/* EXPENSE TABLE */}
         <div className="expense-table">
           <ExpenseTable handleClick={() => setIsModalOpen(true)} />
-          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-            hi
-          </Modal>
+          <ExpenseModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
         </div>
         {/* MONTHLY EXPENSE */}
         <div className="right">
