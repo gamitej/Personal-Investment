@@ -1,7 +1,9 @@
 import "./InputField.scss";
 
 const InputField = ({
+  id = "input-id",
   type = "text",
+  width = "100%",
   label = "Label",
   placeholder = "Enter...",
 }) => {
@@ -9,9 +11,14 @@ const InputField = ({
    * TSX
    */
   return (
-    <div className="input-field">
-      <label>{label}</label>
-      <input type={type} placeholder={placeholder} onChange={() => {}} />
+    <div className="input-field" style={{ width: width }}>
+      <label htmlFor={id}>{label}</label>
+      <input
+        id={id}
+        type={type}
+        onChange={() => {}}
+        placeholder={placeholder}
+      />
     </div>
   );
 };
