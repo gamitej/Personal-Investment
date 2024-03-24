@@ -46,9 +46,9 @@ const TableFooter: React.FC<TableFooterProps> = ({
         <Dropdown
           label=""
           width="5rem"
-          options={paginationDropDownOptions}
           onChange={setPaginationValue}
           selectedValue={paginationValue}
+          options={paginationDropDownOptions}
         />
         <div className="pagination">
           <div

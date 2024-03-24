@@ -1,35 +1,45 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import "./ExpenseModal.scss";
 import Modal from "@/components/modal/Modal";
 import Dropdown from "@/components/dropdown/Dropdown";
 import DateField from "@/components/fields/date/DateField";
 import InputField from "@/components/fields/input/InputField";
+import { expenseOptions } from "../data";
 
 interface ExpenseModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+interface FormField {
+  reason: string | null;
+}
+
 const ExpenseModal: FC<ExpenseModalProps> = ({ isOpen, onClose }) => {
+  const [expenseForm, setExpenseForm] = useState<FormField>({ reason: null });
+
   /**
    * TSX
    */
   return (
     <Modal
-      title="Add Expense"
-      modalWidth="40rem"
-      modalHeight="fit-content"
       isOpen={isOpen}
       onClose={onClose}
+      modalWidth="40rem"
+      title="Add Expense"
+      modalHeight="fit-content"
     >
       <div className="expense-modal">
         <form onSubmit={() => {}}>
           {/* for dropdown */}
           <Dropdown
-            label="For"
-            options={[]}
-            onChange={() => {}}
-            selectedValue={null}
+            label="Reason"
+            width="8rem"
+            options={expenseOptions}
+            selectedValue={expenseForm.reason}
+            onChange={(value: string) =>
+              setExpenseForm({ ...expenseForm, reason: value })
+            }
           />
           <div className="row-1">
             {/* date */}

@@ -2,23 +2,25 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./Dropdown.scss";
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
-interface DropdownProps {
+type DropdownValue = string | number;
+
+interface DropdownProps<T extends DropdownValue> {
   label: string;
   width?: string;
-  selectedValue: number | string | null;
-  onChange: (value: string | number) => void;
-  options: { label: string | number; value: string | number }[];
+  selectedValue: T | null;
+  onChange: (value: T) => void;
+  options: { label: T; value: T }[];
 }
 
-const Dropdown = ({
+const Dropdown = <T extends DropdownValue>({
   label = "label",
   width = "8rem",
   selectedValue,
   options = [],
   onChange,
-}: DropdownProps) => {
+}: DropdownProps<T>) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const [showOptions, setShowOptions] = useState(false);
+  const [showOptions, setShowOptions] = useState<boolean>(false);
 
   // ================ EVENT-HANDLERS =================
 
@@ -26,7 +28,7 @@ const Dropdown = ({
     setShowOptions((prev) => !prev);
   };
 
-  const handleChange = (value: string | number) => {
+  const handleChange = (value: T) => {
     handleOpen();
     onChange(value);
   };
