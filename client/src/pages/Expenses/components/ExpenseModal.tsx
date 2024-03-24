@@ -12,11 +12,24 @@ interface ExpenseModalProps {
 }
 
 interface FormField {
+  desc: string | null;
+  date: Date | null;
+  amount: number;
   reason: string | null;
 }
 
 const ExpenseModal: FC<ExpenseModalProps> = ({ isOpen, onClose }) => {
-  const [expenseForm, setExpenseForm] = useState<FormField>({ reason: null });
+  const [expenseForm, setExpenseForm] = useState<FormField>({
+    reason: null,
+    desc: null,
+    amount: 0,
+    date: new Date(),
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, id } = e.target;
+    setExpenseForm({ ...expenseForm, [id]: value });
+  };
 
   /**
    * TSX
@@ -43,15 +56,20 @@ const ExpenseModal: FC<ExpenseModalProps> = ({ isOpen, onClose }) => {
           />
           <div className="row-1">
             {/* date */}
-            <DateField width="30%" value={null} id="date" onChange={() => {}} />
+            <DateField
+              width="30%"
+              id="date"
+              onChange={handleChange}
+              value={expenseForm.date}
+            />
             {/* amount */}
             <InputField
               width="70%"
               id="amount"
-              value=""
               type="number"
-              onChange={() => {}}
               label="Amount (Rs)"
+              onChange={handleChange}
+              value={expenseForm.amount}
               placeholder="Enter amount..."
             />
           </div>
@@ -59,11 +77,11 @@ const ExpenseModal: FC<ExpenseModalProps> = ({ isOpen, onClose }) => {
             {/* description */}
             <InputField
               id="desc"
-              value=""
               type="text"
-              onChange={() => {}}
               label="Description"
-              placeholder="Enter description..."
+              onChange={handleChange}
+              value={expenseForm.desc}
+              placeholder="Write description..."
             />
           </div>
         </form>

@@ -2,12 +2,12 @@ import "./InputField.scss";
 import { FC } from "react";
 
 interface InputFieldProps {
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   id: string;
-  value: string;
   label: string;
   width?: string;
   placeholder?: string;
+  value: string | number | null;
   type: "text" | "number" | "password";
 }
 
@@ -29,9 +29,9 @@ const InputField: FC<InputFieldProps> = ({
       <input
         id={id}
         type={type}
-        value={value}
         onChange={onChange}
         placeholder={placeholder}
+        value={value === null ? "" : value}
       />
     </div>
   );

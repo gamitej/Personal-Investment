@@ -1,3 +1,4 @@
+import moment from "moment";
 import "./DateField.scss";
 import { FC } from "react";
 
@@ -17,7 +18,7 @@ const DateField: FC<DateFieldProps> = ({
   onChange,
 }) => {
   // Convert Date to string
-  const formattedValue = value ? value.toISOString().substring(0, 10) : "";
+  const formattedValue = value ? moment(value).format("YYYY-MM-DD") : "";
   /**
    * TSX
    */
